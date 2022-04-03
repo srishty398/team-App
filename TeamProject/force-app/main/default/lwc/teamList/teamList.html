@@ -1,0 +1,49 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 03-26-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <template style="background-color: whitesmoke;">
+        <template if:true={teamList}>
+            <lightning-card>
+                <div class="slds-col slds-size_1-of-2 slds-align_absolute-center">
+                    <lightning-combobox name="selectTeam" label="Team :" class="teamName" value={value}
+                        placeholder="Select Team" options={teamList} onchange={SearchTeamMember} style="width: 40%;">
+                    </lightning-combobox>
+                </div>
+            </lightning-card>
+        </template>
+        <template if:true={teamMemberList}>
+            <template for:each={teamMemberList} for:item="teamMember">
+                <lightning-card key={teamMember.id}>
+                    <div class="row slds-align_absolute-center">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span>Name: </span>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <span>{teamMember.Name__c}</span>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <span>Team: </span>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <span>{teamMember.Team__r.Name__c}</span>
+                            </div>
+
+                            <div class="slds-col slds-size_1-of-2">
+                                <span>Skills: </span>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <span>{teamMember.Skills__c}</span>
+                            </div>
+                        </div>
+                    </div>
+                </lightning-card>
+            </template>
+        </template>
+    </template>
+</template>

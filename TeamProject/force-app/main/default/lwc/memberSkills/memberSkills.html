@@ -1,0 +1,29 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-card>
+        <h1 class="member-heading slds-align_absolute-center">Member Form</h1>
+        <div class="slds-col slds-size_1-of-2 slds-align_absolute-center">
+            <lightning-input type="text" name="memberName" id="memberName" class="memberName" label="Name: " value={memberName}  onchange={handleInput}>
+            </lightning-input>
+        </div>
+        <div class="slds-col slds-size_1-of-2 slds-align_absolute-center">
+            <template if:true={teamList}>
+                <lightning-combobox name="selectCountry" label="Team :" class="teamName"  value={teamId}  onchange={handleInput}
+                    placeholder="Select Team" options={teamList} style="width:40%">
+                </lightning-combobox>
+            </template>
+            <template if:false={teamList}>
+                No teams available.
+            </template>
+        </div>
+        <div class="slds-col slds-size_1-of-2 slds-align_absolute-center">
+            <lightning-input type="text" name="skills" id="skills" class="skills" label="Skills: "  value={Skill} onchange={handleInput}></lightning-input>
+        </div>
+        <div class="slds-col slds-size_1-of-2 slds-m-top_medium slds-align_absolute-center">
+            <div class="slds-align_absolute-center">
+                <label for="submit"></label>
+                <input type="submit" value="submit" onclick={handleSubmitForm}>
+            </div>
+        </div>
+    </lightning-card>
+</template>
